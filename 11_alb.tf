@@ -6,5 +6,8 @@ resource "aws_lb" "hoseop_alb" {
   subnets            = [aws_subnet.hoseop_puba.id,aws_subnet.hoseop_pubc.id]
   tags = {
     "Name" = "hoseop-alb"
-  }
+  } 
 }
+ output "dns_name" {
+    value = aws_lb.hoseop_alb.dns_name
+  }
