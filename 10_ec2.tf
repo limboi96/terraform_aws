@@ -22,11 +22,12 @@ resource "aws_instance" "hoseop_web" {
   availability_zone      = "ap-northeast-2a"
   private_ip             = "10.0.0.11"
   subnet_id              = aws_subnet.hoseop_puba.id
+  #유저데이터(wordpress,php)
+  user_data = file("./install.sh")
 
   tags = {
     "Name" = "hoseop-web"
   }
-  #유저데이터(wordpress,php)
 }
 
 resource "aws_eip" "hoseop_web_ip" {
